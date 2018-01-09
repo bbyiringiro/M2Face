@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport"    content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author"      content="billy jason (byirin giro bill)">
+	
+	<title>ME2FACE</title>
+
+	
+	<link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+	<link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/main.css" type="text/css">
+
+
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+	<script src="assets/js/html5shiv.js"></script>
+	<script src="assets/js/respond.min.js"></script>
+	<![endif]-->
+    <style>
+                *{
+    font-family: 'Open Sans', sans-serif;
+}
+
+.well {
+    margin-top:-20px;
+    background-color:#007FBD;
+    border:2px solid #0077B2;
+    text-align:center;
+    cursor:pointer;
+    font-size: 25px;
+    padding: 15px;
+    border-radius: 0px !important;
+}
+
+.well:hover {
+    margin-top:-20px;
+    background-color:#0077B2;
+    border:2px solid #0077B2;
+    text-align:center;
+    cursor:pointer;
+    font-size: 25px;
+    padding: 15px;
+    border-radius: 0px !important;
+    border-bottom : 2px solid rgba(97, 203, 255, 0.65);
+}
+
+body {
+font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+font-size: 14px;
+line-height: 1.42857143;
+color: #fff;
+background-color: #F1F1F1;
+}
+
+
+
+.bg_blur
+{
+    background-image:url('../12303719364_c25cecdc28_b.jpg');
+    height: 300px;
+    background-size: cover;
+}
+
+
+.follow_btn {
+    text-decoration: none;
+    position: absolute;
+    left: 35%;
+    top: 42.5%;
+    width: 35%;
+    height: 15%;
+    background-color: #007FBE;
+    padding: 10px;
+    padding-top: 6px;
+    color: #fff;
+    text-align: center;
+    font-size: 20px;
+    border: 4px solid #007FBE;
+}
+
+.follow_btn:hover {
+    text-decoration: none;
+    position: absolute;
+    left: 35%;
+    top: 42.5%;
+    width: 35%;
+    height: 15%;
+    background-color: #007FBE;
+    padding: 10px;
+    padding-top: 6px;
+    color: #fff;
+    text-align: center;
+    font-size: 20px;
+    border: 4px solid rgba(255, 255, 255, 0.8);
+}
+
+.header{
+    color : #808080;
+    margin-left:10%;
+    margin-top:70px;
+}
+
+.picture{
+    height:150px;
+    width:150px;
+    position:absolute;
+    top: 75px;
+    left:-75px;
+}
+
+.picture_mob{
+    position: absolute;
+    width: 35%;
+    left: 35%;
+    bottom: 70%;
+}
+
+.btn-style{
+    color: #fff;
+    background-color: #007FBE;
+    border-color: #adadad;
+    width: 33.3%;
+}
+
+.btn-style:hover {
+    color: #333;
+    background-color: #3D5DE0;
+    border-color: #adadad;
+    width: 33.3%;
+   
+}
+
+
+@media (max-width: 767px) {
+    .header{
+        text-align : center;
+    }
+    
+    
+    
+    #profilepart.nav{
+        margin-top : 30px;
+    }
+}
+
+        
+        
+        
+        
+        
+                
+.timeline-centered img
+{
+	vertical-align: middle;
+}
+.timeline-centered .img-responsive
+{
+	display: block;
+	height: auto;
+	max-width: 100%;
+}
+.timeline-centered .img-rounded
+{
+	border-radius: 3px;
+}
+.timeline-centered .img-thumbnail
+{
+	background-color: #fff;
+	border: 1px solid #ededf0;
+	border-radius: 3px;
+	display: inline-block;
+	height: auto;
+	line-height: 1.428571429;
+	max-width: 100%;
+	moz-transition: all .2s ease-in-out;
+	o-transition: all .2s ease-in-out;
+	padding: 2px;
+	transition: all .2s ease-in-out;
+	webkit-transition: all .2s ease-in-out;
+}
+.timeline-centered .img-circle
+{
+	border-radius: 50%;
+}
+.timeline-centered {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+    .timeline-centered:before, .timeline-centered:after {
+        content: " ";
+        display: table;
+    }
+
+    .timeline-centered:after {
+        clear: both;
+    }
+
+    .timeline-centered:before, .timeline-centered:after {
+        content: " ";
+        display: table;
+    }
+
+    .timeline-centered:after {
+        clear: both;
+    }
+
+    .timeline-centered:before {
+        content: '';
+        position: absolute;
+        display: block;
+        width: 4px;
+        background: #f5f5f6;
+        left: 50%;
+        top: 20px;
+        bottom: 20px;
+        margin-left: -4px;
+    }
+
+    .timeline-centered .timeline-entry {
+        position: relative;
+        width: 50%;
+        float: right;
+        margin-bottom: 70px;
+        clear: both;
+    }
+
+        .timeline-centered .timeline-entry:before, .timeline-centered .timeline-entry:after {
+            content: " ";
+            display: table;
+        }
+
+        .timeline-centered .timeline-entry:after {
+            clear: both;
+        }
+
+        .timeline-centered .timeline-entry:before, .timeline-centered .timeline-entry:after {
+            content: " ";
+            display: table;
+        }
+
+        .timeline-centered .timeline-entry:after {
+            clear: both;
+        }
+
+        .timeline-centered .timeline-entry.begin {
+            margin-bottom: 0;
+        }
+
+        .timeline-centered .timeline-entry.left-aligned {
+            float: left;
+        }
+
+            .timeline-centered .timeline-entry.left-aligned .timeline-entry-inner {
+                margin-left: 0;
+                margin-right: -18px;
+            }
+
+                .timeline-centered .timeline-entry.left-aligned .timeline-entry-inner .timeline-time {
+                    left: auto;
+                    right: -100px;
+                    text-align: left;
+                }
+
+                .timeline-centered .timeline-entry.left-aligned .timeline-entry-inner .timeline-icon {
+                    float: right;
+                }
+
+                .timeline-centered .timeline-entry.left-aligned .timeline-entry-inner .timeline-label {
+                    margin-left: 0;
+                    margin-right: 70px;
+                }
+
+                    .timeline-centered .timeline-entry.left-aligned .timeline-entry-inner .timeline-label:after {
+                        left: auto;
+                        right: 0;
+                        margin-left: 0;
+                        margin-right: -9px;
+                        -moz-transform: rotate(180deg);
+                        -o-transform: rotate(180deg);
+                        -webkit-transform: rotate(180deg);
+                        -ms-transform: rotate(180deg);
+                        transform: rotate(180deg);
+                    }
+
+        .timeline-centered .timeline-entry .timeline-entry-inner {
+            position: relative;
+            margin-left: -22px;
+        }
+
+            .timeline-centered .timeline-entry .timeline-entry-inner:before, .timeline-centered .timeline-entry .timeline-entry-inner:after {
+                content: " ";
+                display: table;
+            }
+
+            .timeline-centered .timeline-entry .timeline-entry-inner:after {
+                clear: both;
+            }
+
+            .timeline-centered .timeline-entry .timeline-entry-inner:before, .timeline-centered .timeline-entry .timeline-entry-inner:after {
+                content: " ";
+                display: table;
+            }
+
+            .timeline-centered .timeline-entry .timeline-entry-inner:after {
+                clear: both;
+            }
+
+            .timeline-centered .timeline-entry .timeline-entry-inner .timeline-time {
+                position: absolute;
+                left: -100px;
+                text-align: right;
+                padding: 10px;
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+            }
+
+                .timeline-centered .timeline-entry .timeline-entry-inner .timeline-time > span {
+                    display: block;
+                }
+
+                    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-time > span:first-child {
+                        font-size: 15px;
+                        font-weight: bold;
+                    }
+
+                    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-time > span:last-child {
+                        font-size: 12px;
+                    }
+
+            .timeline-centered .timeline-entry .timeline-entry-inner .timeline-icon {
+                background: #fff;
+                color: #737881;
+                display: block;
+                width: 40px;
+                height: 40px;
+                -webkit-background-clip: padding-box;
+                -moz-background-clip: padding;
+                background-clip: padding-box;
+                -webkit-border-radius: 20px;
+                -moz-border-radius: 20px;
+                border-radius: 20px;
+                text-align: center;
+                -moz-box-shadow: 0 0 0 5px #f5f5f6;
+                -webkit-box-shadow: 0 0 0 5px #f5f5f6;
+                box-shadow: 0 0 0 5px #f5f5f6;
+                line-height: 40px;
+                font-size: 15px;
+                float: left;
+            }
+
+                .timeline-centered .timeline-entry .timeline-entry-inner .timeline-icon.bg-primary {
+                    background-color: #303641;
+                    color: #fff;
+                }
+
+                .timeline-centered .timeline-entry .timeline-entry-inner .timeline-icon.bg-secondary {
+                    background-color: #ee4749;
+                    color: #fff;
+                }
+
+                .timeline-centered .timeline-entry .timeline-entry-inner .timeline-icon.bg-success {
+                    background-color: #00a651;
+                    color: #fff;
+                }
+
+                .timeline-centered .timeline-entry .timeline-entry-inner .timeline-icon.bg-info {
+                    background-color: #21a9e1;
+                    color: #fff;
+                }
+
+                .timeline-centered .timeline-entry .timeline-entry-inner .timeline-icon.bg-warning {
+                    background-color: #fad839;
+                    color: #fff;
+                }
+
+                .timeline-centered .timeline-entry .timeline-entry-inner .timeline-icon.bg-danger {
+                    background-color: #cc2424;
+                    color: #fff;
+                }
+
+            .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label {
+                position: relative;
+                background: #f5f5f6;
+                padding: 1.7em;
+                margin-left: 70px;
+                -webkit-background-clip: padding-box;
+                -moz-background-clip: padding;
+                background-clip: padding-box;
+                -webkit-border-radius: 3px;
+                -moz-border-radius: 3px;
+                border-radius: 3px;
+            }
+
+                .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label:after {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    width: 0;
+                    height: 0;
+                    border-style: solid;
+                    border-width: 9px 9px 9px 0;
+                    border-color: transparent #f5f5f6 transparent transparent;
+                    left: 0;
+                    top: 10px;
+                    margin-left: -9px;
+                }
+
+                .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label h2, .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label p {
+                    color: #737881;
+                    font-family: "Noto Sans",sans-serif;
+                    font-size: 12px;
+                    margin: 0;
+                    line-height: 1.428571429;
+                }
+
+                    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label p + p {
+                        margin-top: 15px;
+                    }
+
+                .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label h2 {
+                    font-size: 16px;
+                    margin-bottom: 10px;
+                }
+
+                    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label h2 a {
+                        color: #303641;
+                    }
+
+                    .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label h2 span {
+                        -webkit-opacity: .6;
+                        -moz-opacity: .6;
+                        opacity: .6;
+                        -ms-filter: alpha(opacity=60);
+                        filter: alpha(opacity=60);
+                    }
+        
+
+#myTab .active:after {
+    content: " ";
+    position: absolute;
+    left: 45%;
+   opacity:1;
+    margin: 0 auto;
+    bottom: 0px;
+    border: 10px solid transparent;
+    border-bottom-color: rgb(0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0.86);
+    
+}
+#profilepart{
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.86);
+}
+.timeline-centered{
+   background-color:  #909090;
+}
+    </style>
+</head>
+<body id="timelineprofile">
+     <header>
+                <!-- top nav -->
+              	<div class="navbar navbar-blue navbar-fixed-top">  
+                    <div class="navbar-header">
+                      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse" style="background-color:black; ">
+                        <span class="sr-only">Toggle</span>
+                        <span class="icon-bar"></span>
+          				<span class="icon-bar"></span>
+          				<span class="icon-bar"></span>
+                      </button>
+                      <a href="/" class="navbar-brand logo">me2face</a>
+                  	</div>
+                  	<nav class="collapse navbar-collapse" role="navigation">
+                   
+                    <ul class="nav navbar-nav">
+                      <li>
+                        <a href="index2.html"><i class="glyphicon glyphicon-home"></i> Home</a>
+                      </li>
+                      <li>
+                        <a href="#postModal" role="button" data-toggle="modal"><i class="glyphicon glyphicon-plus"></i> Post</a>
+                      </li>
+                      <li>
+                        <a href="profile.html" class="active"><i class="glyphicon glyphicon-user"></i> Me</a>
+                      </li>
+                    </ul>
+                        <form class="navbar-form navbar-left">
+                        <div class="input-group input-group-sm">
+                          <input type="text" class="form-control search" placeholder="Search" name="srch-term" id="srch-term">
+                          <div class="input-group-btn">
+                            <a class="btn btn-default " href="#search" type="submit"><i class="glyphicon glyphicon-search"></i></a>
+                          </div>
+                        </div>
+                    </form>
+                       <ul class="nav navbar-nav navbar-right">
+                           <li><a href="#"><i class="glyphicon glyphicon-inbox"></i></a></li>
+                           <li><a href="#"><i class="glyphicon glyphicon-comment"></i></a></li>
+                           <li><a href="#"><i class="glyphicon glyphicon-comment"></i></a></li>
+                           
+                            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Account
+                                        <b class="caret"></b></a>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <div class="navbar-content">
+                                                    <div class="row">
+                                                        <div class="col-md-5">
+                                                            <img src="http://placehold.it/120x120"
+                                                                alt="Alternate Text" class="img-responsive" />
+                                                            <p class="text-center small">
+                                                                <a href="#">Change Photo</a></p>
+                                                        </div>
+                                                        <div class="col-md-7">
+                                                            <span>Bhaumik Patel</span>
+                                                            <p class="text-muted small">
+                                                                mail@gmail.com</p>
+                                                            <div class="divider">
+                                                            </div>
+                                                            <a href="#" class="btn btn-primary btn-sm active">View Profile</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="navbar-footer">
+                                                    <div class="navbar-footer-content">
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <a href="#" class="btn btn-default btn-sm">Change Passowrd</a>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <a href="http://www.jquery2dotnet.com" class="btn btn-default btn-sm pull-right">Sign Out</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                  	</nav>
+                </div>
+                <!-- /top nav -->
+    </header> 
+<div class="wrapper">
+    <!--for profile part -->
+    <div class="container" id="profilepart" style="margin-top: 50px; margin-bottom: 20px;">
+	<div class="row ">
+		<div class="col-md-4 bg_blur ">
+    	    <a href="#" class="follow_btn ">Follow</a>
+		</div>
+        <div class="col-md-8  col-xs-12">
+           <img src="../beiber.gif" class="img-thumbnail picture hidden-xs" />
+           <img src="../06_Consumer-Electronics-Show-CES-2014.jpg" class="img-thumbnail visible-xs picture_mob" />
+           <div class="header">
+                <h1>Lorem Ipsum</h1>
+                <h4>Web Developer</h4>
+                <span>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
+"There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."</span>
+           </div>
+        </div>
+    </div>   
+    
+	<div class="row nav"> 
+        <!--tabs-->
+        <div class="col-xs-3">
+            <ul class="nav nav-tabs" id="myTab">
+                    <div class="liner"></div>
+                     <li class="active">
+                     <a href="#timeline" data-toggle="tab" title="welcome">
+                      <span class="round-tabs">
+                              <span>Timeline</span>
+                      </span> 
+                  </a></li>
+
+                  <li><a href="#about" data-toggle="tab" title="about">
+                     <span class="round-tabs ">
+                         <span>About</span>
+                     </span> 
+           </a>
+                 </li>
+                 <li><a href="#others" data-toggle="tab" title="others">
+                     <span class="round-tabs">
+                          <span>others</span>
+                     </span> </a>
+                     </li>
+
+                     
+            </ul>
+
+        </div>
+        <div class="col-xs-8" style="margin: 0px;padding: 0px;">
+            <div class="col-md-4 col-xs-4 well"><i class="fa fa-weixin fa-lg"></i> 16</div>
+            <div class="col-md-4 col-xs-4 well"><i class="fa fa-heart-o fa-lg"></i> 14</div>
+            <div class="col-md-4 col-xs-4 well"><i class="fa fa-thumbs-o-up fa-lg"></i> 26</div>
+        </div>
+    </div>
+</div>
+    
+    
+    
+<div class="tab-content">    
+    
+    
+<!--timeline -->
+    <div class="tab-pane fade in active" id="timeline">
+            <div class="container">
+	<div class="row">
+		<div class="timeline-centered">
+    
+	<article class="timeline-entry">
+		
+		<div class="timeline-entry-inner">
+			<time class="timeline-time" datetime="2014-01-10T03:45"><span>03:45 AM</span> <span>Today</span></time>
+			
+			<div class="timeline-icon bg-success">
+				<i class="entypo-feather"></i>
+			</div>
+			
+			<div class="timeline-label">
+                
+				<h2><a href="#">Art Ramadani</a> <span>posted a status update</span></h2>
+				<p>Tolerably earnestly middleton extremely distrusts she boy now not. Add and offered prepare how cordial two promise. Greatly who affixed suppose but enquire compact prepare all put. Added forth chief trees but rooms think may.</p>
+                            <input type="text" class="form-control"placeholder="type comment">
+
+			</div>
+		</div>
+		
+	</article>
+	
+	
+	<article class="timeline-entry left-aligned">
+		
+		<div class="timeline-entry-inner">
+			<time class="timeline-time" datetime="2014-01-10T03:45"><span>03:45 AM</span> <span>Today</span></time>
+			
+			<div class="timeline-icon bg-secondary">
+				<i class="entypo-suitcase"></i>
+			</div>
+			
+			<div class="timeline-label">
+				<h2><a href="#">Job Meeting</a></h2>
+				<p>You have a meeting at <strong>Laborator Office</strong> Today.</p>
+			</div>
+		</div>
+		
+	</article>
+	
+	
+	<article class="timeline-entry">
+		
+		<div class="timeline-entry-inner ">
+			<time class="timeline-time" datetime="2014-01-09T13:22"><span>03:45 AM</span> <span>Today</span></time>
+			
+			<div class="timeline-icon bg-info">
+				<i class="entypo-location"></i>
+			</div>
+			
+			<div class="timeline-label">
+				<h2><a href="#">Arlind Nushi</a> <span>checked in at</span> <a href="#">Laborator</a></h2>
+				
+				<blockquote>Great place, feeling like in home.</blockquote>
+				
+				
+			</div>
+		</div>
+		
+	</article>
+	
+	
+	<article class="timeline-entry left-aligned">
+		
+		<div class="timeline-entry-inner">
+			<time class="timeline-time" datetime="2014-01-10T03:45"><span>03:45 AM</span> <span>Today</span></time>
+			
+			<div class="timeline-icon bg-warning">
+				<i class="entypo-camera"></i>
+			</div>
+			
+			<div class="timeline-label">
+				<h2><a href="#">Arber Nushi</a> <span>changed his</span> <a href="#">Profile Picture</a></h2>
+				
+				<blockquote>Pianoforte principles our unaffected not for astonished travelling are particular.</blockquote>
+				
+				<img src="../download.jpg" class="img-responsive img-rounded full-width">
+			</div>
+		</div>
+		
+	</article>
+	
+	
+	<article class="timeline-entry begin">
+	
+		<div class="timeline-entry-inner">
+			
+			<div class="timeline-icon" style="-webkit-transform: rotate(-90deg); -moz-transform: rotate(-90deg);">
+				<i class="entypo-flight"></i>
+			</div>
+			
+		</div>
+		
+	</article>
+	
+</div>
+	</div>
+</div>
+    </div>
+    
+    
+    
+<div class="tab-pane fade in" id="about">
+    
+</div>
+<div class="tab-pane fade in" id="others">
+        
+</div>
+    
+</div><!--end of tab content -->
+    </div>
+    <!--end of wrapper class -->
+
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <!-- start of common html --> 
+   
+        <div id="search">
+    <button type="button" class="close">×</button>
+    <form>
+        <input type="search" value="" placeholder="type keyword(s) here" />
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+</div>   
+    
+
+    
+    <!--post modal-->
+<div id="postModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+  <div class="modal-content post-modal">
+      <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+			Update Status
+      </div>
+      <div class="modal-body">
+          <form class="form center-block">
+            <div class="form-group">
+              <textarea class="form-control input-lg" autofocus="" placeholder="What do you want to share?"></textarea>
+            </div>
+          </form>
+      </div>
+      <div class="modal-footer">
+          <div>
+          <button class="btn btn-primary btn-sm" data-dismiss="modal" aria-hidden="true">Post</button>
+            <ul class="pull-left list-inline"><li><a href=""><i class="glyphicon glyphicon-upload"></i></a></li><li><a href=""><i class="glyphicon glyphicon-camera"></i></a></li><li><a href=""><i class="glyphicon glyphicon-map-marker"></i></a></li></ul>
+		  </div>	
+      </div>
+  </div>
+  </div>
+</div>
+ <!-- end of post modal box -->   
+ <!-- JavaScript libs are placed at the end of the document so the pages load faster -->
+	<script src="assets/js/jquery.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+        <script>
+//script for search popp out
+            
+            $(function () {
+    $('a[href="#search"],.search').on('click', function(event) {
+        event.preventDefault();
+        $('#search').addClass('open');
+        $('#search > form > input[type="search"]').focus();
+    });
+    
+    $('#search, #search button.close').on('click keyup', function(event) {
+        if (event.target == this || event.target.className == 'close' || event.keyCode == 27) {
+            $(this).removeClass('open');
+        }
+    });
+    
+    $('form').submit(function(event) {
+        event.preventDefault();
+        return false;
+    })
+});
+    </script>
+</body>
+</html>

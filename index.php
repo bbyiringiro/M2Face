@@ -1,0 +1,605 @@
+<?php 
+session_start();
+
+	
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport"    content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author"      content="Sergey Pozhilov (GetTemplate.com)">
+	
+	<title>ME2FACE</title>
+
+	
+	<link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+	<link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/font-awesome.min.css">
+
+
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+	<script src="assets/js/html5shiv.js"></script>
+	<script src="assets/js/respond.min.js"></script>
+	<![endif]-->
+    <style>
+        body
+{
+    background: rgba(35,13,9,0.5) url('img/bg.jpg') fixed;
+    background-size: cover;
+    padding: 0;
+    margin: 0;
+}
+
+
+.wrap
+{
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 75px;
+    z-index: 99;
+}
+
+p.form-title
+{
+
+    font-family: 'Open Sans' , sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    color: #FFFFFF;
+    margin-top: 5%;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+#login form
+{
+    width: 300px;
+    margin: 0 auto;
+}
+
+ #login form.login input[type="text"], form.login input[type="password"]
+{
+    width: 100%;
+    margin: 0;
+    padding: 5px 10px;
+    background: 0;
+    border: 0;
+    border-bottom: 1px solid #FFFFFF;
+    outline: 0;
+    font-style: italic;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    color: #FFFFFF;
+    outline: 0;
+}
+
+#login form.login input[type="submit"]
+{
+    width: 100%;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-top: 16px;
+    outline: 0;
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+
+#login form.login input[type="submit"]:hover
+{
+    transition: background-color 0.5s ease;
+}
+
+#login form.login .remember-forgot
+{
+    float: left;
+    width: 100%;
+    margin: 10px 0 0 0;
+}
+#login form.login .forgot-pass-content
+{
+    min-height: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#login form.login label, form.login a
+{
+    font-size: 12px;
+    font-weight: 400;
+    color: #FFFFFF;
+}
+
+#login form.login a
+{
+    transition: color 0.5s ease;
+}
+
+#login form.login a:hover
+{
+    color: #2ecc71;
+}
+
+.posted-by
+{
+    position: absolute;
+    bottom: 26px;
+    margin: 0 auto;
+    color: #FFF;
+    background-color: rgba(0, 0, 0, 0.66);
+    padding: 10px;
+    width: 75%;
+    text-align: center;
+    
+}
+        
+#signup {
+    position: fixed;
+    bottom: 30px;
+    right: 10px;
+}
+        .reset hr{
+            width: 300px;
+        }
+/* END OF DEMO CSS */
+
+    .animate {
+		-webkit-transition: all 0.3s ease-in-out;
+		-moz-transition: all 0.3s ease-in-out;
+		-o-transition: all 0.3s ease-in-out;
+		-ms-transition: all 0.3s ease-in-out;
+		transition: all 0.3s ease-in-out;
+	}
+
+	.navbar-fixed-left {
+		position: fixed;
+		top: 0px;
+		left: 0px;
+		border-radius: 0px;
+	}
+
+	.navbar-minimal {
+		width: 60px;		
+		min-height: 60px;
+		max-height: 100%;
+		background-color: rgb(51, 51, 51);
+		background-color: rgba(51, 51, 51, 0.8);
+		border-width: 0px;
+		z-index: 1000;
+	}
+
+	.navbar-minimal > .navbar-toggler {
+		position: relative;
+		min-height: 60px;
+		border-bottom: 1px solid rgb(81, 81, 81);
+		z-index: 100;
+		cursor: pointer;
+	}
+
+	.navbar-minimal.open > .navbar-toggler,
+	.navbar-minimal > .navbar-toggler:hover {
+		background-color: rgb(158, 202, 59);
+	}
+
+	.navbar-minimal > .navbar-toggler > span {
+		position: absolute;
+		top: 50%;
+		right: 50%;
+		margin: -8px -8px 0 0;
+		width: 16px;
+		height: 16px;
+		background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE2LjIuMSwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjMycHgiIHZpZXdCb3g9IjAgMCAxNiAzMiIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMTYgMzIiIHhtbDpzcGFjZT0icHJlc2VydmUiPgo8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZmlsbD0iI0ZGRkZGRiIgZD0iTTEsN2gxNGMwLjU1MiwwLDEsMC40NDgsMSwxcy0wLjQ0OCwxLTEsMUgxQzAuNDQ4LDksMCw4LjU1MiwwLDgKCVMwLjQ0OCw3LDEsN3oiLz4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGZpbGw9IiNGRkZGRkYiIGQ9Ik0xLDEyaDE0YzAuNTUyLDAsMSwwLjQ0OCwxLDFzLTAuNDQ4LDEtMSwxSDFjLTAuNTUyLDAtMS0wLjQ0OC0xLTEKCVMwLjQ0OCwxMiwxLDEyeiIvPgo8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZmlsbD0iI0ZGRkZGRiIgZD0iTTEsMmgxNGMwLjU1MiwwLDEsMC40NDgsMSwxcy0wLjQ0OCwxLTEsMUgxQzAuNDQ4LDQsMCwzLjU1MiwwLDMKCVMwLjQ0OCwyLDEsMnoiLz4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGZpbGw9IiNGRkZGRkYiIGQ9Ik0xLjMzLDI4Ljk3bDExLjY0LTExLjY0YzAuNDU5LTAuNDU5LDEuMjA0LTAuNDU5LDEuNjYzLDAKCWMwLjQ1OSwwLjQ1OSwwLjQ1OSwxLjIwNCwwLDEuNjYzTDIuOTkzLDMwLjYzM2MtMC40NTksMC40NTktMS4yMDQsMC40NTktMS42NjMsMEMwLjg3MSwzMC4xNzQsMC44NzEsMjkuNDMsMS4zMywyOC45N3oiLz4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGZpbGw9IiNGRkZGRkYiIGQ9Ik0yLjk5MywxNy4zM2wxMS42NDEsMTEuNjRjMC40NTksMC40NTksMC40NTksMS4yMDQsMCwxLjY2MwoJcy0xLjIwNCwwLjQ1OS0xLjY2MywwTDEuMzMsMTguOTkzYy0wLjQ1OS0wLjQ1OS0wLjQ1OS0xLjIwNCwwLTEuNjYzQzEuNzg5LDE2Ljg3MSwyLjUzNCwxNi44NzEsMi45OTMsMTcuMzN6Ii8+Cjwvc3ZnPgo=);
+		background-repeat: no-repeat;
+		background-position: 0 0;
+		-webkit-transition: -webkit-transform .3s ease-out 0s;
+		-moz-transition: -moz-transform .3s ease-out 0s;
+		-o-transition: -moz-transform .3s ease-out 0s;
+		-ms-transition: -ms-transform .3s ease-out 0s;
+		transition: transform .3s ease-out 0s;
+		-webkit-transform: rotate(0deg);
+		-moz-transform: rotate(0deg);
+		-o-transform: rotate(0deg);
+		-ms-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+
+	.navbar-minimal > .navbar-menu {
+		position: absolute;
+		top: -1000px;
+		left: 0px;
+		margin: 0px;
+		padding: 0px;
+		list-style: none;
+		z-index: 50;
+		background-color: rgb(51, 51, 51);
+		background-color: rgba(51, 51, 51, 0.8);
+	}
+	.navbar-minimal > .navbar-menu > li {
+		margin: 0px;
+		padding: 0px;
+		border-width: 0px;
+		height: 54px;
+	}
+	.navbar-minimal > .navbar-menu > li > a {
+		position: relative;
+		display: inline-block;
+		color: rgb(255, 255, 255);
+		padding: 20px 23px;
+		text-align: left;
+		cursor: pointer;
+		border-bottom: 1px solid rgb(81, 81, 81);
+		width: 100%;
+		text-decoration: none;
+		margin: 0px;
+	}
+
+	.navbar-minimal > .navbar-menu > li > a:last-child {
+		border-bottom-width: 0px;
+	}
+	.navbar-minimal > .navbar-menu > li > a:hover {
+		background-color: rgb(158, 202, 59);
+	}
+	.navbar-minimal > .navbar-menu > li > a > .glyphicon {
+		float: right;
+	}
+
+	.navbar-minimal.open {
+		width: 320px;
+	}
+
+	.navbar-minimal.open > .navbar-toggler > span {
+		background-position: 0 -16px;
+		-webkit-transform: rotate(-180deg);
+		-moz-transform: rotate(-180deg);
+		-o-transform: rotate(-180deg);
+		-ms-transform: rotate(-180deg);
+		transform: rotate(-180deg);
+	}
+
+	.navbar-minimal.open > .navbar-menu {
+		top: 60px;
+		width: 100%;
+		min-height: 100%;
+	}
+
+	@media (min-width: 768px) {
+		.navbar-minimal.open {
+			width: 60px;
+		}
+		.navbar-minimal.open > .navbar-menu {
+			overflow: visible;
+		}
+		.navbar-minimal > .navbar-menu > li > a > .desc {
+			position: absolute;
+			display: inline-block;
+			top: 50%;
+			left: 130px;
+			margin-top: -20px;
+			margin-left: 20px;
+			text-align: left;
+			white-space: nowrap;
+			padding: 10px 13px;
+			border-width: 0px !important;
+			background-color: rgb(51, 51, 51);
+			background-color: rgba(51, 51, 51, 0.8);
+			opacity: 0;
+		}
+		.navbar-minimal > .navbar-menu > li > a > .desc:after {
+			z-index: -1;
+			position: absolute;
+			top: 50%;
+			left: -10px;
+			margin-top: -10px;
+			content:'';
+			width: 0;
+			height: 0;
+			border-top: 10px solid transparent;
+			border-bottom: 10px solid transparent; 	
+			border-right: 10px solid rgb(51, 51, 51);
+			border-right-color: rgba(51, 51, 51, 0.8);
+		}
+		.navbar-minimal > .navbar-menu > li > a:hover > .desc {
+			left: 60px;
+			opacity: 1;
+		}
+	}
+                
+.popover-title {
+  padding: 8px 14px;
+  margin:-1px;
+  font-size: 14px;
+    color:#FFF;
+    background-color: rgba(0, 0, 0, 0.66);
+  border-bottom: 1px solid #ebebeb;
+  border-radius: 5px 5px 0 0;
+}
+    
+  
+.password{
+    position: relative;
+}
+
+.password input[type="password"]{
+    padding-right: 30px;
+}
+
+.password .glyphicon{
+    display: none;
+    right: 15px;
+    position: absolute;
+    top: 5px;
+    cursor:pointer;
+    background-color: rgba(126, 117, 117, 0.86);
+border-radius: 100%;
+}
+    </style>
+</head>
+    <body>
+          <nav class="navbar navbar-fixed-left navbar-minimal animate" role="navigation">
+		<div class="navbar-toggler animate">
+			<span class="menu-icon"></span>
+		</div>
+		<ul class="navbar-menu animate">
+			<li>
+				<a href="#about-us" class="animate">
+					<span class="desc animate"> Who We Are </span>
+					<span class="glyphicon glyphicon-user"></span>
+				</a>
+			</li>
+			<li>
+				<a href="#blog" class="animate">
+					<span class="desc animate"> What We Say </span>
+					<span class="glyphicon glyphicon-info-sign"></span>
+				</a>
+			</li>
+			<li>
+				<a href="#contact-us" class="animate">
+					<span class="desc animate"> How To Reach Us </span>
+					<span class="glyphicon glyphicon-comment"></span>
+				</a>
+			</li>
+		</ul>
+	</nav>
+       
+        <div class="container">
+    <div class="row">
+        <div class="col-md-12">
+           
+            <div class="wrap" id="login">
+                <p class="form-title">
+                     <span class="sign-lebal">Sign In</span></p>
+               
+                
+                <form class="login" action="login.php" method="post" >
+                <input type="text" placeholder="Username"  name="username" >
+                     <div class="password">
+                        <input type="password" name="pass" id="passwordfield" placeholder="password" >
+                        <span class="glyphicon glyphicon-eye-open"></span>
+                    </div>
+                <input type="submit" value="Sign In" name="login" class="btn btn-success btn-sm" />
+                <div class="remember-forgot">
+                    <div class="row">
+                        <div class="col-xs-6 col-md-6">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox"  />
+                                    Remember Me
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-md-6 forgot-pass-content">
+                            <a href="#" class="forgot-pass">Forgot Password</a>
+                        </div>
+                    </div>
+                </div>
+                </form>
+            </div>
+            
+            <div class="wrap" style="display:none;">
+               <p class="form-title">
+                     Forgot your password?</p>
+                <div class="reset">
+                <hr>
+                </div>
+    <form accept-charset="UTF-8" role="form" id="login-recordar" method="post">
+      <fieldset>
+        <span class="help-block">
+          Email address you use to log in to your account
+          <br>
+          We'll send you an email with instructions to choose a new password.
+        </span>
+        <div class="form-group input-group">
+          <span class="input-group-addon">
+            @
+          </span>
+          <input class="form-control" placeholder="Email" name="email" type="email" required="">
+        </div>
+        <input type="submit" value="Sign In" class="btn btn-success btn-sm col-xs-12" />
+        <p class="help-block">
+          <a class="text-muted" href="#" id="acceso"><small>Account Access</small></a>
+        </p>
+      </fieldset>
+    </form>
+            </div>
+        </div>
+    </div>
+    <div class="posted-by text-right">
+								Copyright &copy; 2015, Designed by 
+                                <a title="web designer" data-container="body" data-toggle="popover" data-placement="top" data-content="This web was designed by billy jason ,who's student and he has worked on many geek projects, he is good at both front-end  and server-side" rel="designer">Billy jason</a> 
+				</div>
+</div>
+
+        
+        <a href="#" class="btn btn-primary" id="signup"  data-placement="left" title="sign up" data-toggle="modal" data-target="#signUP"><span class="glyphicon glyphicon-lock"></span></a>
+        
+        
+         <!-- signup Modal --> 
+    <div class="modal fade" id="signUP" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog"> 
+            <div class="modal-content"> 
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"> 
+                        <img src="assets/images/close_pop.png"> 
+                    </button> 
+                    <h4 class="modal-title" id="myModalLabel">
+                       Register to become a member
+                    </h4> 
+                </div> 
+                <div class="modal-body">
+                    <form action="" method="post" class="form-horizontal" role="form" >
+                    
+                     <div class="form-group"> 
+                            <label class="col-sm-2 control-label">Fullname</label>
+                            <div class="col-sm-10"><input type="text" name="fullname" class="form-control"  placeholder="Enter your first and last name"> </div>
+                        </div>
+                        
+                    <div class="form-group"> 
+                            <label class="col-sm-2 control-label">Username</label>
+                            <div class="col-sm-10"><input name="username" type="text" class="form-control"  placeholder="Enter your username you want to use"> </div>
+                        </div>
+                        <div class="form-group"> 
+                            <label class="col-sm-2 control-label">Email</label>
+                            <div class="col-sm-10"><input type="email" name="email" class="form-control"  placeholder="Enter your email"> </div>
+                        </div>
+                        <div class="form-group"> 
+                            <label for="inputPassword" class="col-sm-2 control-label">Password</label>
+                            <div class="col-sm-5"> <input type="password" name="pass" class="form-control" id="inputPassword" placeholder="Password"> </div>
+                            <div class="col-sm-5"> <input type="password" class="form-control" id="confirmPassword" placeholder="confirm your Password">
+                            </div>
+                            </div>
+                        <div class="form-group" style="margin-top:3em;"> 
+                            
+                            <label for="name" class="col-sm-2 control-label">Gender</label> 
+                            <div class="col-sm-9 " style="padding-left:1.7em;">
+                            <select name="gender" class="form-control">
+                                <option>choose</option>
+                                <option value="male" >Male</option> 
+                                <option value="female" >Female</option> 
+                            </select>
+                            </div>
+                                
+                        </div>
+                    <div class="form-group">
+                        <div class="col-sm-2  label-control"><label>Birth</label></div>
+                        
+                        <div class="col-sm-3">   
+                            <select name="day" class="form-control">  
+                            <option selected="selected">day</option>
+                                <?php for($i=31;$i>0;$i--){
+                                 echo'<option value="'.$i.'">'.$i.'</option>';
+    
+                                }?>
+
+                                
+                            </select>    
+                        </div> 
+                        <div class="col-sm-3">   
+                            <select name="month" class="form-control">
+                                <option>month</option>
+                                <option value="1">Jan</option>
+                                <option value="2">Feb</option>
+                                <option value="3">Mar</option>
+                                <option value="4">Apr</option>
+                                <option value="5">May</option>
+                                <option value="6">June</option>
+                                <option value="7">july</option>
+                                <option value="8">Augst</option>
+                                <option value="9">Sept</option>
+                                <option value="10">Oct</option>
+                                <option value="11">Nov</option>
+                                <option value="12">Dec</option>
+                                
+                                
+                                
+                            </select>    
+                        </div> 
+                        <div class="col-sm-3">   
+                            <select name="year" class="form-control">
+                                <option>year</option>
+                                <?php for($i=2016;$i>1900;$i--){
+                                 echo'<option value="'.$i.'">'.$i.'</option>';
+     
+                                }?>
+                                
+                            </select>    
+                        </div>
+                        </div>
+                        <div class="checkbox" style="padding-left:8em;">
+                        
+                                <input type="checkbox" name="terms" >I agree to the <a href="#a">Terms</a>
+                           
+                        </div>
+                            <div class="modal-footer">
+                    <input class="btn btn-lg btn-primary btn-block" type="submit" value="Create an account">
+                </div>
+                        
+                    </form>
+                </div> 
+                
+            </div>
+        </div>
+                
+            <!-- /.modal-content --> 
+        </div><!-- /.modal -->
+        
+        
+        	<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
+	<script src="assets/js/jquery.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+        <script>
+             $(document).ready(function () {
+    $('.forgot-pass').click(function(e) {
+      e.preventDefault();
+    $('.wrap').toggle('500');
+    }); 
+    
+   $('#acceso').click(function(e) {
+    e.preventDefault();
+    $('.wrap').toggle('500');
+  }); 
+});
+            $(function () {
+   
+    
+    $('#signup').tooltip();
+    /* END DEMO OF JS */
+    
+    $('.navbar-toggler').on('click', function(event) {
+		event.preventDefault();
+		$(this).closest('.navbar-minimal').toggleClass('open');
+	});
+    
+    
+        //bring eye to password field
+
+    $("#passwordfield").on("keyup",function(){
+    if($(this).val())
+        $(".glyphicon-eye-open").show();
+    else
+        $(".glyphicon-eye-open").hide();
+    });
+$(".glyphicon-eye-open").mousedown(function(){
+                $("#passwordfield").attr('type','text');
+            }).mouseup(function(){
+            	$("#passwordfield").attr('type','password');
+            }).mouseout(function(){
+            	$("#passwordfield").attr('type','password');
+            });
+});
+         $(function () { $("[data-toggle='popover']").popover(); });   
+            
+            
+        </script>
+    </body>
+</html>
+   

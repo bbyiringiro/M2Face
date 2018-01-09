@@ -1,0 +1,56 @@
+.feed-content{
+     box-shadow: 1px 0px 0px rgba(0, 0, 0, 0.05) inset, -1px 0px 0px rgba(0, 0, 0, 0.05) inset;
+    
+background:  repeat scroll 0% 0%  #4B6C8D;
+border-style: solid;
+border-color: rgba(0, 0, 0, 0.1);
+border-image: none;
+border-width: 0px 1px;
+
+}
+.first-feed{
+    padding-top: 5px;
+}
+.first-feed textarea{
+    border: none;
+    height: 50px;
+    resize: none;
+padding: 8px 7px 0px;
+    border-radius: 0px;}
+
+.feed-item{
+    background-color: #999;
+    margin-bottom: 12px;
+    padding: 12px;
+    border-radius: 3px;
+}
+.feed-head img{
+    height: 50px;
+    width: 50px;
+}
+.feed-likes{
+    margin: 0 -12px;
+    height:40px;
+        position: relative;
+    height: 40px;
+    border-bottom: 1px solid #DDD;
+    background: none repeat-x scroll 50% 50% #E6E6E6;
+    box-shadow: 0px 0px 0px 1px rgba(255, 255, 255, 0.15) inset, 0px 0px 3px rgba(0, 0, 0, 0.1);
+   
+}
+.feed-body{
+    padding: 12px 0px;
+    border-bottom: 
+}
+.feed-comment{
+    background-color: #F6F7F8;
+border-radius: 0px 0px 3px 3px;
+color: #141823;
+margin: 0px -12px -12px;
+overflow: visible;
+width: auto;
+}
+.feed-comment .profile-image img{
+height:40px;
+width:40px;
+}

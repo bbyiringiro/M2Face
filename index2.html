@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport"    content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author"      content="Sergey Pozhilov (GetTemplate.com)">
+	
+	<title>ME2FACE</title>
+
+	
+	<link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+	<link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/font-awesome.min.css">
+        <link rel="stylesheet" href="main.css" type="text/css">
+        <link rel="stylesheet" href="assets/css/feedmain.css" type="text/css">
+
+
+
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+	<script src="assets/js/html5shiv.js"></script>
+	<script src="assets/js/respond.min.js"></script>
+	<![endif]-->
+    <style>
+   
+	#posts {
+		position: fixed;
+		top: 0px;
+		left: 0px;
+		height: 100%;
+		background-color: rgba(255, 255, 255, 0.7);
+		overflow: auto;
+		-webkit-transition: all 0.5s ease-in-out;
+		-moz-transition: all 0.5s ease-in-out;
+		-o-transition: all 0.5s ease-in-out;
+		-ms-transition: all 0.5s ease-in-out;
+		transition: all 0.5s ease-in-out;
+		z-index: 100;
+		padding: 0px;
+	}
+
+	#posts a {
+		display: block;
+		padding: 20px 30px;
+		color: rgb(51, 51, 51);
+		text-decoration: none;
+	}
+
+	#posts a:hover {
+		background-color: rgba(255, 255, 255, 0.8);
+	}
+
+	#toggle_posts {
+		position: fixed;
+		top: 0px;
+		left: 0px;
+		width: 0px;
+		height: 100%;
+		background-color: rgb(51, 51, 51);
+		color: rgb(255, 255, 255);
+		text-align: center;
+		cursor: pointer;
+		-webkit-transition: all 0.5s ease-in-out;
+		-moz-transition: all 0.5s ease-in-out;
+		-o-transition: all 0.5s ease-in-out;
+		-ms-transition: all 0.5s ease-in-out;
+		transition: all 0.5s ease-in-out;
+		z-index: 100;
+	}
+	#toggle_posts h1 {
+		position: absolute;
+		top: 50%;
+		left: -63px;
+		font-size: 1.2em;
+		margin: 0px;
+		line-height: 1.1px;
+		letter-spacing: 20px;
+		font-weight: 700;
+		margin-top: -68px;
+		-webkit-transform: rotate(-90deg);
+		-moz-transform: rotate(-90deg);
+		-ms-transform: rotate(-90deg);
+		-o-transform: rotate(-90deg);
+		transform: rotate(-90deg);
+	}
+	#toggle_posts h1 .glyphicon.arrow-left {
+		position: absolute;
+		top: 0;
+		left: -40px;
+		margin-top: -8px;
+	}
+	#toggle_posts h1 .glyphicon.arrow-right {
+		position: absolute;
+		top: 0;
+		left: 156px;
+		margin-top: -8px;
+	}
+
+
+
+	#posts.col-xs-11 { left: -91.66666667%; }	
+	#posts.col-xs-11.open ~ #toggle_posts { left: 91.66666667%; }
+
+	@media (min-width: 768px) {
+		#posts.col-sm-4 { left: -33.33333333%; }
+		#posts.col-sm-4.open ~ #toggle_posts { left: 33.33333333%; }
+	}
+
+	@media (min-width: 992px) {
+		#posts.col-md-3 { left: -25%; }
+		#posts.col-md-3.open ~ #toggle_posts { left: 25%; }
+	}
+
+
+	#posts.open { left: 0px; }
+     
+    </style>
+</head>
+<body id="timelinefeed">
+    <div class="page">
+        
+                 
+        <header>
+                <!-- top nav -->
+              	<div class="navbar navbar-blue navbar-fixed-top">  
+                    <div class="navbar-header">
+                      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse" style="background-color:black;">
+                        <span class="sr-only">Toggle</span>
+                        <span class="icon-bar"></span>
+          				<span class="icon-bar"></span>
+          				<span class="icon-bar"></span>
+                      </button>
+                      <a href="/" class="navbar-brand logo">me2face</a>
+                  	</div>
+                  	<nav class="collapse navbar-collapse" role="navigation">
+                   
+                    <ul class="nav navbar-nav">
+                      <li>
+                        <a href="#"><i class="glyphicon glyphicon-home"></i> Home</a>
+                      </li>
+                      <li>
+                        <a href="#postModal" role="button" data-toggle="modal"><i class="glyphicon glyphicon-plus"></i> Post</a>
+                      </li>
+                      <li>
+                        <a href="#"><i class="glyphicon glyphicon-user"></i> Me</a>
+                      </li>
+                    </ul>
+                         <form class="navbar-form navbar-left">
+                        <div class="input-group input-group-sm">
+                          <input type="text" class="form-control search" placeholder="Search" name="srch-term" id="srch-term">
+                          <div class="input-group-btn">
+                            <a class="btn btn-default " href="#search" type="submit"><i class="glyphicon glyphicon-search"></i></a>
+                          </div>
+                        </div>
+                    </form>
+                       <ul class="nav navbar-nav navbar-right">
+                           <li><a href="#"><i class="glyphicon glyphicon-inbox"></i></a></li>
+                           <li><a href="#"><i class="glyphicon glyphicon-comment"></i></a></li>
+                           <li><a href="#"><i class="glyphicon glyphicon-comment"></i></a></li>
+                           
+                            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Account
+                                        <b class="caret"></b></a>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <div class="navbar-content">
+                                                    <div class="row">
+                                                        <div class="col-md-5">
+                                                            <img src="http://placehold.it/120x120"
+                                                                alt="Alternate Text" class="img-responsive" />
+                                                            <p class="text-center small">
+                                                                <a href="#">Change Photo</a></p>
+                                                        </div>
+                                                        <div class="col-md-7">
+                                                            <span>Bhaumik Patel</span>
+                                                            <p class="text-muted small">
+                                                                mail@gmail.com</p>
+                                                            <div class="divider">
+                                                            </div>
+                                                            <a href="#" class="btn btn-primary btn-sm active">View Profile</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="navbar-footer">
+                                                    <div class="navbar-footer-content">
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <a href="#" class="btn btn-default btn-sm">Change Passowrd</a>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <a href="http://www.jquery2dotnet.com" class="btn btn-default btn-sm pull-right">Sign Out</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                  	</nav>
+                </div>
+                <!-- /top nav -->
+    </header> 
+    
+   <div class="wrapper" style="margin-top:75px;">
+       <div id="timelinecontainer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-11">
+                    <div class="row clearfix">
+                        <div class="col-md-3 pull-right" id="rightcol">
+                            <ul >
+                                <li>
+                                   <a>aaassd </a>
+                                </li>
+                                <li>
+                                  <a>sssssssssss</a>  
+                                </li>
+                                <li>
+                                  <a>sssssssssss</a>  
+                                </li> 
+                                <li>
+                                  <a>sssssssssss</a>  
+                                </li>
+                                
+                                
+                            </ul>
+                                
+                            <ul>
+                                <li>
+                                    <a> aaassd </a>
+                                </li>
+                                <li>
+                                    <a> sssssssssss  </a>
+                                </li>
+                                    
+                                <li>
+                                    <a> sssssssssss  </a>
+                                </li>
+                                    
+                                <li>
+                                    <a> sssssssssss  </a>
+                                </li>
+                                    
+                                <li>
+                                    <a> sssssssssss  </a>
+                                </li>
+                            </ul>
+                                
+                            <ul>
+                                <li>
+                                    <a> aaassd </a>
+                                </li>
+                                <li>
+                                    <a> sssssssssss  </a>
+                                </li>
+                                    
+                                <li>
+                                    <a> sssssssssss  </a>
+                                </li>
+                                    
+                                <li>
+                                    <a> sssssssssss  </a>
+                                </li>
+                                    
+                                <li>
+                                    <a> sssssssssss  </a>
+                                </li>
+                            </ul>
+                            <ul class="list-inline text-center" id="footer-sidebar"> <li>About</li> <li>Apps</li> <li>Legal</li> <li>Privacy</li> <li><span class="glyphicon glyphicon-map-marker"></span></li> </ul>
+                           
+                        </div>
+                            
+                        <div class="col-md-7 col-md-offset-2 leftcol">
+                            <ol id="feed" class="feed">
+                                <li class="post_container">
+                                       <div class="post post_full">
+                                           <div class="post_avatar">
+                                               <div class="post_avatar_wrapper">
+                                                 <a class="post_avatar_link" style="background-image: url(img/photos/a.jpg);;"></a>  
+                                               </div>
+                                           </div>
+                                            <div class="post_wrapper">
+                                              
+                                               <div class="post_header">
+                                              
+                                                  <div class="post_info">
+                                              
+                                                     <div class="post_info_fence">  
+                                                         <a class="post_info_link" href="h" >billyjason5</a>
+                                                     </div>
+                                              
+                                                  </div>
+                                              </div>
+                                             <div class="post_content">
+                                                 
+                                                   <div class="overlay"></div>
+                                                   <div class="post_title">ma</div>
+                                                   <div class="post_body"><p>wow am am shoked kbs</p></div>
+                                                 
+    
+                                            </div>
+    
+                                            <div class="post_footer clearfix" data-subview="footer">
+                                            <span class="votes ">100 likes  </span><a class="comment ">comment</a>
+                                            
+									        <div class='heart pull-right'><img src='img/icons/heart-red.png' alt='' ></div>
+                                                
+
+                                            </div>
+                                       </div>
+                                    </div>
+                                       
+                                </li> 
+                                <li class="post_container">
+                                       <div class="post post_full">
+                                           <div class="post_avatar">
+                                               <div class="post_avatar_wrapper">
+                                                 <a class="post_avatar_link" style="background-image: url(img/photos/beiber.gif);;"></a>  
+                                               </div>
+                                           </div>
+                                            <div class="post_wrapper">
+                                              
+                                               <div class="post_header">
+                                              
+                                                  <div class="post_info">
+                                                     <div class="post_info_fence">  
+                                                         <a class="post_info_link" href="h" >billyjason5</a>
+                                                     </div>
+                                              
+                                                  </div>
+                                              </div>
+    
+                                             <div class="post_content">
+                                                 <div class="overlay "></div>
+                                                 <div class="post_media">
+                                                     <a ><img class="image" src="img/photos/b.jpg"></a>
+                                                 </div>
+                                                   
+                                                   <div class="post_body"><p>wow am am shoked kbs</p></div>
+    
+                                            </div>
+    
+                                            <div class="post_footer clearfix" data-subview="footer">
+                                            <span class="votes ">100 likes  </span><a class="comment ">comment</a>
+                                            
+									        <div class='heart pull-right'><img src='img/icons/heart-red.png' alt='' ></div>
+                                                
+
+                                            </div> 
+                                       </div>
+                                    </div>
+                                       
+                                </li>
+                                    
+                                <li class="post_container">
+                                       <div class="post post_full">
+                                           <div class="post_avatar">
+                                               <div class="post_avatar_wrapper">
+                                                 <a class="post_avatar_link" style="background-image: url(img/photos/beiber.gif);;"></a>  
+                                               </div>
+                                           </div>
+                                            <div class="post_wrapper">
+                                              
+                                               <div class="post_header">
+                                              
+                                                  <div class="post_info">
+                                                     <div class="post_info_fence">  
+                                                         <a class="post_info_link" href="h" >billyjason5</a>
+                                                     </div>
+                                              
+                                                  </div>
+                                              </div>
+    
+                                             <div class="post_content">
+                                                 <div class="overlay "></div>
+                                                 <div class="post_media">
+                                                     <a ><img class="image" src="img/photos/c.jpg"></a>
+                                                 </div>
+                                                   
+                                                   <div class="post_body"><p>wow am am shoked kbs</p></div>
+    
+                                            </div>
+    
+                                            <div class="post_footer clearfix" data-subview="footer">
+                                            <span class="votes ">100 likes  </span><a class="comment ">comment</a>
+                                            
+									        <div class='heart pull-right'><img src='img/icons/heart-red.png' alt='' ></div>
+                                                
+
+                                            </div> 
+                                       </div>
+                                    </div>
+                                       
+                                </li> 
+                                
+                            </ol>
+                        </div>
+                        </div>
+                  
+                        
+                </div>
+                  <div class="col-md-1">
+                        c
+                    </div>
+               
+                
+            </div>
+            <div class="row">
+               <div id="auto_pagination_loader" class="auto-pagination-loader">
+                   
+           
+                       
+                </div>
+            </div>
+        </div>
+           
+       </div>
+       
+ 
+   </div>
+    
+
+   
+   <!-- start of common html --> 
+    </div>
+        <div id="search">
+    <button type="button" class="close">×</button>
+    <form>
+        <input type="search" value="" placeholder="type keyword(s) here" />
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+</div>  
+    
+<div id="posts" class="col-xs-11 col-sm-4 col-md-3">
+		<a href="#post-1001">
+			<img class="col-xs-4" src="http://d.gr-assets.com/books/1358275334l/2767052.jpg" alt="The Hunger Games">
+			The Hunger Games
+			<div class="clearfix"></div>
+		</a>
+		<a href="#post-1002">
+			<img class="col-xs-4" src="http://d.gr-assets.com/books/1387141547l/2.jpg" alt="Harry Potter and the Order of the Phoenix">
+			Harry Potter and the Order of the Phoenix
+			<div class="clearfix"></div>
+		</a>
+		<a href="#post-1003">
+			<img class="col-xs-4" src="http://d.gr-assets.com/books/1361482611l/6.jpg" alt="Harry Potter and the Order of the Phoenix">
+			Harry Potter and the Goblet of Fire
+			<div class="clearfix"></div>
+		</a>
+		<a href="#post-1004">
+			<img class="col-xs-4" src="http://d.gr-assets.com/books/1362278317l/5.jpg" alt="Harry Potter and the Prisoner of Azkaban">
+			Harry Potter and the Prisoner of Azkaban
+			<div class="clearfix"></div>
+		</a>
+		<a href="#post-1005">
+			<img class="col-xs-4" src="http://d.gr-assets.com/books/1361039443l/41865.jpg" alt="Twilight">
+			Twilight
+			<div class="clearfix"></div>
+		</a>
+		<a href="#post-1006">
+			<img class="col-xs-4" src="http://d.gr-assets.com/books/1361039191l/1.jpg" alt="Harry Potter and the Half-Blood Prince">
+			Harry Potter and the Half-Blood Prince
+			<div class="clearfix"></div>
+		</a>
+		<a href="#post-1007">
+			<img class="col-xs-4" src="http://d.gr-assets.com/books/1361975680l/2657.jpg" alt="To Kill a Mockingbird">
+			To Kill a Mockingbird
+			<div class="clearfix"></div>
+		</a>
+		<a href="#post-1008">
+			<img class="col-xs-4" src="http://d.gr-assets.com/books/1370023538l/136251.jpg" alt="Harry Potter and the Deathly Hallows">
+			Harry Potter and the Deathly Hallows
+			<div class="clearfix"></div>
+		</a>
+		<a href="#post-1009">
+			<img class="col-xs-4" src="http://d.gr-assets.com/books/1320399351l/1885.jpg" alt="Pride and Prejudice">
+			Pride and Prejudice
+			<div class="clearfix"></div>
+		</a>
+		<a href="#post-1010">
+			<img class="col-xs-4" src="http://d.gr-assets.com/books/1370043634l/15881.jpg" alt="Harry Potter and the Chamber of Secrets">
+			Harry Potter and the Chamber of Secrets
+			<div class="clearfix"></div>
+		</a>
+	</div>
+
+    <div id="toggle_posts">
+		<h1>
+			<span class="glyphicon arrow-left glyphicon-chevron-up"></span>
+			<span>POSTS</span>
+			<span class="glyphicon arrow-right glyphicon-chevron-down"></span>
+		</h1>
+	</div>
+
+
+    
+    
+    
+
+    
+    <!--post modal-->
+<div id="postModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+  <div class="modal-content post-modal">
+      <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+			Update Status
+      </div>
+      <div class="modal-body">
+          <form class="form center-block">
+            <div class="form-group">
+              <textarea class="form-control input-lg" autofocus="" placeholder="What do you want to share?"></textarea>
+            </div>
+          </form>
+      </div>
+      <div class="modal-footer">
+          <div>
+          <button class="btn btn-primary btn-sm" data-dismiss="modal" aria-hidden="true">Post</button>
+            <ul class="pull-left list-inline"><li><a href=""><i class="glyphicon glyphicon-upload"></i></a></li><li><a href=""><i class="glyphicon glyphicon-camera"></i></a></li><li><a href=""><i class="glyphicon glyphicon-map-marker"></i></a></li></ul>
+		  </div>	
+      </div>
+  </div>
+  </div>
+</div>
+ <!-- end of post modal box -->  
+    
+    
+     <!-- JavaScript libs are placed at the end of the document so the pages load faster -->
+	<script src="assets/js/jquery.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/main.js"  type="text/javascript"></script>
+  
+    </body>
+</html>
